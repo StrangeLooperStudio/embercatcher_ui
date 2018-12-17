@@ -8,6 +8,20 @@ let moduleConfig = buildResolverConfig(config.modulePrefix);
  * to add support for them.
  */
 
+Object.assign(moduleConfig.types, {
+  'authenticator': { definitiveCollection: 'main' },
+  'session': { definitiveCollection: 'main' },
+  'session-store': { definitiveCollection: 'main' },
+  'torii-provider': { definitiveCollection: 'main' },
+  'torii-service': { definitiveCollection: 'main' }
+});
+
+moduleConfig.collections.main.types.push('authenticator');
+moduleConfig.collections.main.types.push('session-store');
+moduleConfig.collections.main.types.push('session');
+moduleConfig.collections.main.types.push('torii-provider');
+moduleConfig.collections.main.types.push('torii-service');
+
 export default Resolver.extend({
   config: moduleConfig
 });
