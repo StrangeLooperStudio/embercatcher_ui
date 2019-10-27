@@ -26,7 +26,17 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+      apiUrl: 'http://localhost:4200'
+    },
+    torii: {
+     providers: {
+       'github-oauth2': {
+         clientId: '964e63d77496f2307e70',
+         scope: '',
+         redirectUri: 'http://localhost:4200/torii/redirect.html'
+       }
+     }
+   }
   };
 
   if (environment === 'development') {
